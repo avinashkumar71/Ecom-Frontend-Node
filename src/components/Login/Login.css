@@ -1,0 +1,30 @@
+.login_container{
+    width: 30%;
+    margin: 0px auto;
+    margin-top: 70px;
+    
+}
+.login_container h2{
+    font-weight: 700;
+    margin: 10px 0px;
+    padding: 5px 0px;
+    text-align: center;
+    border-radius: 5px;  
+}
+.login_container p{
+    margin: 10px 0px;
+}
+#login{
+    color: red;
+    cursor: pointer;
+}
+.login_container form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.login_container input{
+    padding: 5px 10px;
+    outline: none;
+}

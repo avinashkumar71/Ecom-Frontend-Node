@@ -1,0 +1,56 @@
+.heading_sellerRegister{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    gap: 15px;
+}
+.heading_sellerRegister p{
+    padding: 5px 10px;
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+.heading_sellerRegister p:active{
+    background: white;
+    color: black;
+    border: 1px solid blue;
+}
+.form{
+    width: 40%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form input , select , button{
+    padding: 5px 10px;
+}
+.form button{
+    border: 1px solid red;
+    background: red;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+.form button:hover{
+    background-color: rgb(237, 89, 89);
+}
+.form button:active{
+    background-color: red;
+}
+.checkbox-account{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.checkbox-account label{
+    font-size: 14px;
+    cursor: pointer;
+}
+.info-message{
+    background:rgb(4, 186, 65);
+    color: white;
+    padding: 6px 5px;
+    border-radius: 5px;
+    font-weight: 700;
+}

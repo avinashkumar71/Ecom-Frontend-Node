@@ -1,0 +1,19 @@
+.addproduct_container{
+    width: 30%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.addproduct_container input , textarea{
+    padding: 5px 10px;
+}
+#file{
+    padding: 5px 0px;
+}
+#category{
+    background-color: white;
+    color: black;
+    font-weight: 200;
+    font-size: 14px;
+}

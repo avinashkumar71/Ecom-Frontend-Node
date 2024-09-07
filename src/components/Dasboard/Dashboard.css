@@ -1,0 +1,16 @@
+.dashboard_container{
+    width: 90%;
+    margin: 20px auto;
+}
+.dashboard_container ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    /* text-decoration: none; */
+}
+.dashboard_container ul a{
+    background: blue;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
