@@ -75,7 +75,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/mycart' element={<Mycart/>}/>
             <Route path='/description/:id' element={<Description/>}/>
-            <Route path='/sucess' element={<Success/>}/>
+            <Route path='/success' element={<Success/>}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
