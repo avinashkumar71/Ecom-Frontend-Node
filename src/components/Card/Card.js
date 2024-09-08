@@ -34,21 +34,12 @@ function Card({product,auth}) {
                     </div>
                 </NavLink>    
                 <div className='itemname_description'>
-                    <p className='itemname'>{product.productname}</p>
-                    <p className='description'>seller {auth.company}</p>
-                    <p className='description'>{product.description}</p>
+                    <p className='itemname-card'>{product.productname}</p>
+                    <p className='description-card'>seller {auth.company}</p>
+                    <p className='description-card'>{product.description}</p>
                 </div>
                 <div className='price_add_to_cart'>
-                    <p><span className='mark_price'>{product.price} ₹</span><span className='selling_price'>{product.selling_price} ₹</span></p>
-
-                    {/* {product.id in QuantityCounter(state)?<>
-                                                            <span className='De' onClick={()=>{Decrease(product)}}>-</span>
-                                                            {product.id in QuantityCounter(state)?<span className='cart_number' >{QuantityCounter(state)[product.id]}</span>:<div></div>}
-                                                            <span className='In' onClick={()=>{Increase(product)}}>+</span>
-                                                        </>
-                                                            :
-                                                            <button onClick={()=>{Increase(product)}}>Add</button>} */}
-                
+                    <p><span className='mark_price'>{product.price} ₹</span><span className='selling_price'>{product.selling_price} ₹</span></p>                
                 </div>
             </div>
             <div className='update_delete'>

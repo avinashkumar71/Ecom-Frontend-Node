@@ -28,3 +28,38 @@ th, td {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.Address-payment{
+    display: flex;
+    justify-content: space-around;
+} 
+.Address-payment .payment{
+    width: 30%;
+    border: 1px solid black;
+    
+}
+.Address-payment form{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Address-payment .payment form button{
+    width: 30%;
+    background-color: blue;
+    /* color: white; */
+    border: none;
+    border-radius: 10px;
+}
+.Address-payment .payment .error{
+    text-align: left;
+    color: red;
+    font-weight: 700;
+}
+.Address-payment .payment .place-order-btn{
+    background-color: red;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
