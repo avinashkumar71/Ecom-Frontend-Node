@@ -22,10 +22,11 @@
 .image_wrapper img{
     width: 100%;
     height: 100%;
+    /* border: 1px solid black; */
 }
 .offer_price_off{
     position: absolute;
-    top: 5px;
+    top: -7px;
     left: 5px;
     background: blue;
     color: white;
@@ -33,16 +34,19 @@
     font-size: 12px;
     font-weight: 700;
 }
-.itemname{
+.itemname-homecard{
     padding: 1px 5px;
     font-weight: 700;
     font-size: 15px;
+    text-align: left;
 }
-.description{
+.description-homecard{
+    margin-top: -1px;
     padding: 1px 5px;
     line-height: 15px;
     font-size: 12px;
     color: rgb(111, 106, 106);
+    text-align: left;
 }
 .price_add_to_cart{
     width: 100%;

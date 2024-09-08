@@ -30,16 +30,21 @@
     font-size: 12px;
     font-weight: 700;
 }
-.itemname{
+.itemname-card{
+    margin-top: -1px;
     padding: 1px 5px;
     font-weight: 700;
     font-size: 15px;
+    text-align: left;
 }
-.description{
+
+.description-card{
+    margin-top: -1px;
     padding: 1px 5px;
     line-height: 15px;
     font-size: 12px;
     color: rgb(111, 106, 106);
+    text-align: left;
 }
 .update_delete{
     display: flex;
@@ -66,22 +71,23 @@
 }
 .price_add_to_cart{
     width: 100%;
-    padding: 8px 5px;
+    padding: 8px 0px;
     position: absolute;
     bottom: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* border: 1px solid black; */
 }
-.cart_number{
+/* .cart_number{
     color: white;
     background: blue;
     padding: 0px 5px;
     border-radius: 5px;
     margin: 4px 0px;
     margin-right: -18px;
-}
-.price_add_to_cart button{
+} */
+/* .price_add_to_cart button{
     padding: 4px 12px;
     font-size: 15px;
     background: white;
@@ -91,24 +97,24 @@
     background-color: green;
     border-radius: 5px;
     cursor: pointer;
-}
-.price_add_to_cart .De, .In{
+} */
+/* .price_add_to_cart .De, .In{
     background-color: red;
     color: white;
     padding: 0px 6px;
     border-radius: 5px;
     margin: 4px 0px;
     cursor: pointer;
-}
-.price_add_to_cart .De:active, .In:active{
+} */
+/* .price_add_to_cart .De:active, .In:active{
     transform: translateY(2px);
 }
 .price_add_to_cart .De{
     margin-right: -18px;
-}
-.price_add_to_cart button:active{
+} */
+/* .price_add_to_cart button:active{
     background-color: rgb(31, 233, 31);
-}
+} */
 .mark_price,.selling_price{
     font-size: 14px;
 }

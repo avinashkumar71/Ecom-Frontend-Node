@@ -20,17 +20,18 @@ function CardForHome({product}) {
                 <NavLink to={`/description/${product._id}`}>
                     <div className='image_wrapper'>
                     <img src={`${product.ImageUrl}`} alt="" />
-                        <p className='offer_price_off'>{product.discount}% OFF</p>
+                        {product.discount!==0?<p className='offer_price_off'>{product.discount}% OFF</p>:<></>}  
                     </div>
                 </NavLink>    
                 <div className='_description_price'>
                 <div className='itemname_description'>
-                    <p className='itemname'>{product.productname}</p>
+                    <p className='itemname-homecard'>{product.productname}</p>
                     {/* <p className='description'>seller {auth.company}</p> */}
-                    <p className='description'>{product.description}</p>
+                    <p className='description-homecard'>{product.description}</p>
                 </div>
                 <div className='price_add_to_cart'>
-                    <p><span className='mark_price'>{product.price} ₹</span><span className='selling_price'>{product.selling_price} ₹</span></p>
+                    
+                    <p>{product.discount!==0?<span className='mark_price'>{product.price} ₹</span>:<></>}<span className='selling_price'>{product.selling_price} ₹</span></p>
 
                     {product._id in QuantityCounter(state)?<>
                                                             <span className='De' onClick={()=>{Decrease(product)}}>-</span>

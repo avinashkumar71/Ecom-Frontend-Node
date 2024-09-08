@@ -1,0 +1,29 @@
+.address{
+    width: 40%;
+}
+.address form{
+    /* width: 100%; */
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+    /* border: 1px solid black; */
+}
+.address form input{
+    font-size: 12px;
+    padding: 4px 4px;
+    outline: none;
+}
+.address form button{
+    background-color: blue;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.print-address{
+    text-align: left;
+    font-size: 700;
+}
+.print-address-div{
+    margin-top: 15px;
+}
