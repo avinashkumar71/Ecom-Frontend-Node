@@ -16,6 +16,10 @@ import reducer from './components/Reducer';
 import { createContext, useEffect, useReducer, useState } from 'react';
 import UpdateProduct from './components/Dasboard/UpdateProduct';
 import Success from './components/Dasboard/Success';
+import COD from './components/Dasboard/COD';
+import MyOrder from './components/Mycart/MyOrder';
+import axios from 'axios';
+import baseUrl from './Urls';
 
 export const UserContext = createContext(null)
 
@@ -24,6 +28,7 @@ function App() {
   const [customer,setcustomer] = useState({customer_user:{},jwttoken:''})
   const [seller,setseller] = useState({user:{},jwttoken:''})
   const [order_id,setorder_id] = useState(undefined)
+  const [AllItem,setAllItem] = useState([])
 
   useEffect(()=>{
     if(localStorage.getItem('user')){
@@ -32,6 +37,27 @@ function App() {
       setseller({user:JSON.parse(user)[0],jwttoken:JSON.parse(auth)[0]})
   }
   },[])
+
+  useEffect(()=>{
+    if(localStorage.getItem('customer_user')){
+      const user = localStorage.getItem('customer_user')
+      const auth = localStorage.getItem('jwttoken')
+      setcustomer({customer_user: JSON.parse(user)[0] ,jwttoken: JSON.parse(auth)[0]})
+  }
+  },[])
+
+  useEffect(()=>{
+    axios.get(`${baseUrl}/all-products`)
+    .then((response)=>{
+      setAllItem(response.data)
+      // console.log('all-products ------->',response.data)
+      if(localStorage.getItem('All-item')===null){
+            localStorage.setItem('All-item',JSON.stringify(response.data))
+      }
+    }).catch((error)=>{
+    })
+  },[])
+  console.log('All-item from app',AllItem)
 
   const initialState =[]
        const [state, dispatch] = useReducer(reducer, initialState);  
@@ -56,7 +82,7 @@ function App() {
 
   return (
    <>
-   <UserContext.Provider value={{state,Increase,Decrease,QuantityCounter,customer,setcustomer,seller,setseller,order_id,setorder_id}}>
+   <UserContext.Provider value={{state,Increase,Decrease,QuantityCounter,customer,setcustomer,seller,setseller,order_id,setorder_id,AllItem}}>
       <BrowserRouter>
       <Navbar/>
         <Routes>
@@ -66,9 +92,8 @@ function App() {
             <Route path='/seller-products' element={<ProductList/>}/>
             <Route path='/seller-product-update/:id' element={<UpdateProduct/>}/>
             <Route path='/seller-logout' element={<Logout/>}/>
-
-
           </Route>
+
           <Route path='/seller-login' element={<SellerRegister/>}/>
           <Route path='/seller' element={<Dasboard/>}/>
             <Route path='' element={<Home/>}/>
@@ -76,6 +101,8 @@ function App() {
             <Route path='/mycart' element={<Mycart/>}/>
             <Route path='/description/:id' element={<Description/>}/>
             <Route path='/success' element={<Success/>}/>
+            <Route path='/cod' element={<COD/>}/>
+            <Route path='/myorder' element={<MyOrder/>}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

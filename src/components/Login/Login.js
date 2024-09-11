@@ -29,6 +29,7 @@ function Login() {
           localStorage.setItem('jwttoken',JSON.stringify([response.data.auth]))
           setcustomer({customer_user:response.data.user,jwttoken:response.data.auth})
           navigate('/')
+          window.location.reload()
         }).catch((error)=>{
           console.log(error)
         })
