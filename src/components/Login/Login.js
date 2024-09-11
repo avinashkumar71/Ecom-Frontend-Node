@@ -7,13 +7,12 @@ import baseUrl from '../../Urls'
 
 
 function Login() {
-  console.log('login component')
+  
   const {setcustomer} = useContext(UserContext)
   const [data,setdata] = useState()
   const [login,setlogin] = useState(false)
   const [message,setmessage] = useState('')
   const navigate = useNavigate()
-  console.log('------------>',data)
   function Timer(){
     setTimeout(()=>{
       setmessage('')
@@ -24,14 +23,13 @@ function Login() {
     if(login===true){
         axios.post(`${baseUrl}/customer-login`,data)
         .then((response)=>{
-          console.log('********>',response.data)
           localStorage.setItem('customer_user',JSON.stringify([response.data.user]))
           localStorage.setItem('jwttoken',JSON.stringify([response.data.auth]))
           setcustomer({customer_user:response.data.user,jwttoken:response.data.auth})
           navigate('/')
           window.location.reload()
         }).catch((error)=>{
-          console.log(error)
+          
         })
         setmessage('credential are incorrect')
         Timer()

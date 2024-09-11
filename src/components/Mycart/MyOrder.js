@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom'
 
 function MyOrder() {
     const {customer,AllItem} = useContext(UserContext)
-    console.log('my order Allitem',AllItem)
     const [details,setdetails] = useState([])
     const [mode,setmode] = useState('ONLINE')
 
@@ -16,19 +15,19 @@ function MyOrder() {
             console.log('online -------> ')
                 axios.post(`${baseUrl}/myorder`,{user_id:customer.customer_user._id})
                 .then((response)=>{
-                    console.log('my online order response-------->',response.data)
+                    
                     setdetails(response.data)
                 }).catch((error)=>{
-                    console.log(error)
+                    
                 })
         }else if(mode==='COD'){
-                console.log('cod ---------->')
+                
                 axios.post(`${baseUrl}/my-cod-order`,{user_id:customer.customer_user._id})
                 .then((response)=>{
-                    console.log('my cod order response-------->',response.data)
+                    
                     setdetails(response.data)
                 }).catch((error)=>{
-                    console.log(error)
+                    
                 })
         }
     },[mode])
@@ -40,17 +39,17 @@ function MyOrder() {
         return text
     }
 
-    function ProductShortName(obj){
-        const keys = Object.keys(obj)
-        let Arry = []
-        for(let pid of keys){
-            const U_PID = pid.slice(0,7)
-            Arry.push(U_PID)
-        }
-        // console.log('Arry --->',Arry)
-        const id = Arry.toString()
-        return id
-    }
+    // function ProductShortName(obj){
+    //     const keys = Object.keys(obj)
+    //     let Arry = []
+    //     for(let pid of keys){
+    //         const U_PID = pid.slice(0,7)
+    //         Arry.push(U_PID)
+    //     }
+    //     // console.log('Arry --->',Arry)
+    //     const id = Arry.toString()
+    //     return id
+    // }
 
     function ProductID(obj){
         const keys = Object.keys(obj)

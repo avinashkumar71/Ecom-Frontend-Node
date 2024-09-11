@@ -2,9 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import './CardForHome.css'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from '../../App'
-import baseUrl from '../../Urls'
 function CardForHome({product}) {
-    console.log('forHome component')
     const {state,Increase,Decrease,QuantityCounter,setcustomer} = useContext(UserContext)
     useEffect(()=>{
         if(localStorage.getItem('customer_user')){

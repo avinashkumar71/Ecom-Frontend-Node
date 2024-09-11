@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './AddProduct.css'
 import { useNavigate } from 'react-router-dom';
 import baseUrl from '../../Urls';
-import {BarLoader,BeatLoader } from 'react-spinners'
+import {BeatLoader } from 'react-spinners'
 
 function AddProduct() {
   const [loading,setloading] = useState(false)
@@ -11,12 +11,6 @@ function AddProduct() {
   let auth = localStorage.getItem('user')
   auth = JSON.parse(auth)[0]
   const [formdata,setformdata] = useState(new FormData)
-  // const [productname,setproductname] = useState(null)
-  // const [price,setprice] = useState(null)
-  // const [Discount,setDiscount] = useState(null)
-  // const [qty,setqty] = useState(null)
-  // const [category,setcategory] = useState(null)
-  // const [description,setdescription] = useState(null)
   const [post,setpost] = useState()
 
   const handleClick =(e)=>{

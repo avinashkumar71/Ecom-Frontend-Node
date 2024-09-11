@@ -15,14 +15,13 @@ function ProductList() {
     axios.post(`${baseUrl}/all-products-by-user/${auth._id}`,{headers:{authorization:`bearer ${seller.jwttoken}`}}
     )
     .then((response)=>{
-      console.log(response.data)
       setproducts(response.data)
     }).catch((error)=>{
       
     })
   },[seller.jwttoken])
-  console.log(`products type of -------> ${products}`,typeof products)
-  console.log(`jwttoken ----->`,seller.jwttoken)
+  // console.log(`products type of -------> ${products}`,typeof products)
+  // console.log(`jwttoken ----->`,seller.jwttoken)
   return (
     <>
       <div className='productlist_container'>
