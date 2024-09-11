@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import baseUrl from '../../Urls'
 import axios from 'axios'
 import Address from '../Address/Address'
+import {PulseLoader } from 'react-spinners'
 function Mycart() {
   const {state,QuantityCounter,customer,setorder_id,order_id} = useContext(UserContext)
-
+  const [loading,setloading] = useState(false)
   const [checkout,setcheckout] = useState(false)
   const [fetchAddress,setfetchAddress] = useState(undefined)
   const [IsAddress,setIsAddress] = useState(undefined)
@@ -39,7 +40,8 @@ function Mycart() {
       phone:customer.customer_user.phone,
       amount:grandTotal(),
       order_products:QuantityCounter(state),
-      address:AD
+      address:AD,
+      payment_mode:PaymentMethod
     }
     axios.post(`${baseUrl}/pay`,data)
     .then((response)=>{
@@ -66,25 +68,42 @@ function Mycart() {
     console.log('mycart',AD)
     setfetchAddress(AD)
     setIsAddress(true)
-    
-    BookOrder(AD)
-    
+  }
+
+  const PlacedOrder =(e)=>{
+    e.preventDefault()
+    console.log('placed order')
+    BookOrder(fetchAddress)
   }
 
   function Error(){
-    seterror('Select Payment option')
+    seterror('Something is missing Address or Payment Option')
     setTimeout(()=>{
       seterror('')
-    },2000)
+    },3000)
+  }
+
+  function COD(e){
+    e.preventDefault()
+    console.log('cod is fire ...')
+    const coddetails = {
+      user_id:customer.customer_user._id,
+      amount:grandTotal(),
+      products:QuantityCounter(state),
+      address:fetchAddress,
+      payment_status:'pending'
+    }
+    axios.post(`${baseUrl}/codorder`,coddetails)
+    .then((response)=>{
+      console.log(response)
+      navigate('/cod')
+    }).catch((error)=>{
+      console.log(error)
+    })
   }
 
   console.log('payment method',PaymentMethod)
-
-  // const paymentgateway=(e)=>{
-  //   e.preventDefault()
-  //   window.open(longurl)
-  // }
-
+  
   return (
     <div className='mycart_container'>
         <div className='mycart_wrapper'>
@@ -123,12 +142,14 @@ function Mycart() {
             <h3>Payment Method</h3>
             {error!==''?<p className='error'>{error}</p>:<></>}
             <form>
-              <div><input type="radio" name='payment-option' onChange={()=>setPaymentMethod('COD')} /> Cash On Delivery</div>
+              {longurl===false ? <div><input type="radio" name='payment-option' onChange={()=>setPaymentMethod('COD')} /> Cash On Delivery</div>:<></>}
+              
               <div><input type="radio" name='payment-option' onChange={()=>setPaymentMethod('ONLINE')}/> Debit / Credit / NetBanking (Online)</div>
             </form>
 
-            {PaymentMethod!==undefined?IsAddress===true && longurl!==undefined?<a href={`${longurl}`}><button className='place-order-btn'>Place Order</button></a>:<></>:<button className='place-order-btn' onClick={Error}>Place Order</button>}
-    
+            {longurl===false ? IsAddress===true && PaymentMethod==='ONLINE' ? <><button className='place-order-btn' onClick={PlacedOrder}>Proceed</button></>: PaymentMethod==='COD' && IsAddress===true ? <button className='place-order-btn' onClick={COD}>COD</button> : <button className='place-order-btn' onClick={Error}>Proceed</button>:<><a href={`${longurl}`} onClick={()=>setloading(true)}><button className='place-order-btn'>Pay {grandTotal()} ₹</button></a><span id='payment-beatloader'><PulseLoader loading={loading} size={10} /></span></>}
+
+            {/*  */}
           </div>
         </div>}
     </div>

@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 import './AddProduct.css'
 import { useNavigate } from 'react-router-dom';
 import baseUrl from '../../Urls';
+import {BarLoader,BeatLoader } from 'react-spinners'
 
 function AddProduct() {
+  const [loading,setloading] = useState(false)
   const navigate = useNavigate()
   let auth = localStorage.getItem('user')
   auth = JSON.parse(auth)[0]
@@ -19,6 +21,7 @@ function AddProduct() {
 
   const handleClick =(e)=>{
     e.preventDefault()
+    setloading(true)
         post['user_id'] = auth._id
         formdata.append('data',JSON.stringify(post))
         axios.post(`${baseUrl}/file-upload`,formdata, {
@@ -63,6 +66,9 @@ function AddProduct() {
         <input type="file" id='file' onChange={handleFileInput} required/>
         <button>upload</button>
       </form>
+      <div className='addproduct-propagate'>
+        <BeatLoader loading={loading} />
+      </div>
     </>
   )
 }

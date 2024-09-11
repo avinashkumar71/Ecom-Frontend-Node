@@ -4,10 +4,12 @@ import { useState } from 'react'
 import axios from 'axios'
 import './UpdateProduct.css'
 import baseUrl from '../../Urls'
+import {BeatLoader } from 'react-spinners'
 
 function UpdateProduct() {
     const navigate = useNavigate()
     const product_id = useParams()
+    const [loading,setloading] = useState(false)
     const [formdata,setformdata] = useState(new FormData())
     const [post,setpost] = useState({})
     const [productname,setproductname] = useState()
@@ -43,6 +45,7 @@ function UpdateProduct() {
 
     const handleClick =(e)=>{
         e.preventDefault()
+        setloading(true)
         post['productname'] = productname
         post['price'] = price
         post['qty'] = qty
@@ -114,9 +117,12 @@ function UpdateProduct() {
                     <label htmlFor="">Description</label>
                     <textarea  id="" placeholder='Description' name='description' value={description} onChange={(e)=>{setdescription(e.target.value)}}></textarea>
                 </div>
-                <input type="file" id='file' onChange={handleFileInput} />
-                <button>Confirm</button>
+                <input type="file" id='update-file' onChange={handleFileInput} />
+                <button>Update</button>
             </form>
+            <div className='update-propagate'>
+                <BeatLoader loading={loading} />
+            </div>
         </div>
     </>
   )

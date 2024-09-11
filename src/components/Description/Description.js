@@ -1,21 +1,44 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Description.css'
 import { useParams } from 'react-router-dom'
+import { UserContext } from '../../App'
 
 function Description() {
   console.log('description component')
-  
   const param = useParams()
+  // const {AllItem} = useContext(UserContext)
+  // let product = {};
+  // console.log('Allitem param ---->',AllItem,param)
+
+  // useEffect(()=>{
+  //   if(localStorage.getItem('All-item')===null){
+  //     localStorage.setItem('All-item',JSON.stringify(AllItem))
+  //   }else{
+  //     product =  JSON.parse(localStorage.getItem('All-item'))
+  //     console.log('p--------->',product) 
+  //     product = product[0]
+  //   }
+  // },[])
+  let AllItem =  JSON.parse(localStorage.getItem('All-item'))
+  console.log('all item descrip *--/+ >',AllItem)
+  
+  let product = AllItem.filter((item)=>item._id===param.id)
+  product = product[0]
+  
+  // let product = AllItem.filter((item)=>item._id===param.id)
+  // product = product[0]
+  
+   
   return (
     <>  
         <div className="description_container">
           <div className='description_wrapper'>
             <div className='description_left_part'>
                 <div className='description_image'>
-                    {/* <img src={`http://127.0.0.1:8000${Individual_product.product_image}`} alt="" /> */}
+                    <img src={`${product.ImageUrl}`} alt="" />
                 </div>
                 <div className='description_text'>
-                  {/* <p className='description_brand_name'>{Individual_product.product_name}</p> */}
+                  <p className='description_brand_name'>{product.description}</p>
                   <p className='description_desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque asperiores quidem dicta eaque, vero error velit accusamus, consectetur in excepturi odio assumenda laudantium a sit?</p>
                 </div>
             </div>
@@ -26,7 +49,7 @@ function Description() {
                 </div>
                 <div className='mrp_quantity_addtocart'>
                     <div className='mrp_quantity'>
-                      {/* <p>{Individual_product.price} ₹</p> */}
+                      <p>{product.price} ₹</p>
                       <div className='increase_and_decrease'>
                         {/* {Individual_product.id in QuantityCounter(state)?<p className='decrease' onClick={()=>{Decrease(Individual_product)}}>-</p>:<p className='decrease'>-</p>}<span>{Individual_product.id in QuantityCounter(state)?QuantityCounter(state)[Individual_product.id]:0}</span><p className='increase' onClick={()=>{Increase(Individual_product)}}>+</p> */}
                       </div>

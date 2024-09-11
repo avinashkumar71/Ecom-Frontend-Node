@@ -12,6 +12,8 @@ function Home() {
         axios.get(`${baseUrl}/all-products`)
         .then((response)=>{
           setAllProduct(response.data)
+          // setAllItem(response.data)
+          console.log('all-products ------->',response.data)
         }).catch((error)=>{
         })
       },[])
