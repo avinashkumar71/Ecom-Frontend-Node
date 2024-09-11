@@ -24,7 +24,7 @@ import baseUrl from './Urls';
 export const UserContext = createContext(null)
 
 function App() {
-  console.log('app component')
+  // console.log('app component')
   const [customer,setcustomer] = useState({customer_user:{},jwttoken:''})
   const [seller,setseller] = useState({user:{},jwttoken:''})
   const [order_id,setorder_id] = useState(undefined)
@@ -57,7 +57,7 @@ function App() {
     }).catch((error)=>{
     })
   },[])
-  console.log('All-item from app',AllItem)
+  // console.log('All-item from app',AllItem)
 
   const initialState =[]
        const [state, dispatch] = useReducer(reducer, initialState);  

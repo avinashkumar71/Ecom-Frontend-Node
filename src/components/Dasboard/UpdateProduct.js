@@ -33,15 +33,13 @@ function UpdateProduct() {
             setcategory(data.category)
             setImageUrl(data.ImageUrl)
         }).catch((error)=>{
-            console.log(error)
+            // console.log(error)
         })
     },[])
 
     // console.log('price',price)
     // console.log('discount',discount)
     // console.log('qty',qty)
-
-    
 
     const handleClick =(e)=>{
         e.preventDefault()

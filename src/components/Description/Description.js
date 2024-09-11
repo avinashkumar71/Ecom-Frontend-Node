@@ -1,26 +1,13 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import './Description.css'
 import { useParams } from 'react-router-dom'
-import { UserContext } from '../../App'
 
 function Description() {
-  console.log('description component')
+  // console.log('description component')
   const param = useParams()
-  // const {AllItem} = useContext(UserContext)
-  // let product = {};
-  // console.log('Allitem param ---->',AllItem,param)
 
-  // useEffect(()=>{
-  //   if(localStorage.getItem('All-item')===null){
-  //     localStorage.setItem('All-item',JSON.stringify(AllItem))
-  //   }else{
-  //     product =  JSON.parse(localStorage.getItem('All-item'))
-  //     console.log('p--------->',product) 
-  //     product = product[0]
-  //   }
-  // },[])
   let AllItem =  JSON.parse(localStorage.getItem('All-item'))
-  console.log('all item descrip *--/+ >',AllItem)
+  // console.log('all item descrip *--/+ >',AllItem)
   
   let product = AllItem.filter((item)=>item._id===param.id)
   product = product[0]

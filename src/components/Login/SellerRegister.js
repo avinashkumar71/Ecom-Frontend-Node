@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import './SellerRegister.css'
 import { UserContext } from '../../App'
 import baseUrl from '../../Urls'
-import {BarLoader,BeatLoader } from 'react-spinners'
+import {BeatLoader } from 'react-spinners'
 
 function SellerRegister() {
   const navigate = useNavigate()
@@ -31,7 +31,6 @@ function SellerRegister() {
   const Login =(e)=>{
     e.preventDefault()
     setloading(true)
-    console.log(data)
     axios.post(`${baseUrl}/seller-login`,data)
            .then((response)=>{
              if(response.data.user){
@@ -46,7 +45,7 @@ function SellerRegister() {
              }
             
            }).catch((error)=>{
-              console.log('----====>',error)
+              
            })
   }
   const Register =(e)=>{
@@ -54,7 +53,6 @@ function SellerRegister() {
     setloading(true)
     data['is_seller'] = true
     data['is_created_Buyer_account'] = is_created_Buyer_account
-    console.log(data)
     axios.post(`${baseUrl}/seller-register`,data)
          .then((response)=>{
             setmessage('Register Successfully !')

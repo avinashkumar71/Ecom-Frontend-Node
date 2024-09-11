@@ -7,13 +7,12 @@ import baseUrl from '../../Urls'
 
 function Home() {
     const [AllProduct,setAllProduct] = useState([])
-    console.log('home component')
     useEffect(()=>{
         axios.get(`${baseUrl}/all-products`)
         .then((response)=>{
           setAllProduct(response.data)
           // setAllItem(response.data)
-          console.log('all-products ------->',response.data)
+        
         }).catch((error)=>{
         })
       },[])

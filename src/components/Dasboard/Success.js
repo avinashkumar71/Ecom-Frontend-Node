@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { UserContext } from '../../App'
-import { useContext } from 'react'
+import React, { useEffect } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 import { useParams, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
@@ -19,15 +18,15 @@ function Success() {
     useEffect(()=>{
         axios.post(`${baseUrl}/success`,{payment_request_id:payment_request_id,payment_status:payment_status})
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             timer()
         }).catch((error)=>{
-            console.log(error)
+            // console.log(error)
         })
     },[])
     
-    console.log('params',payment_request_id)
-    console.log('status',payment_status)
+    // console.log('params',payment_request_id)
+    // console.log('status',payment_status)
   return (
     <>
       <div>

@@ -31,7 +31,7 @@ function Mycart() {
   }
 
   const BookOrder =(AD)=>{
-    console.log('payment start....')
+    // console.log('payment start....')
     setcheckout(true)
     const data = {
       user_id:customer.customer_user._id,
@@ -45,34 +45,34 @@ function Mycart() {
     }
     axios.post(`${baseUrl}/pay`,data)
     .then((response)=>{
-      console.log(response)
-      console.log(response.data.id)
+      // console.log(response)
+      // console.log(response.data.id)
      
       setlongurl(response.data.longurl)
       setorder_id(response.data.id)
     }).catch((error)=>{
-      console.log(error)
+      // console.log(error)
     })
   }
 
-  console.log('order id -->',order_id)
-  console.log('longurl-->',longurl)
-  console.log('qtycounter-->',QuantityCounter(state))
-  console.log('state ---->',state.length)
+  // console.log('order id -->',order_id)
+  // console.log('longurl-->',longurl)
+  // console.log('qtycounter-->',QuantityCounter(state))
+  // console.log('state ---->',state.length)
 
   const JumpToLogin =()=>{
     navigate('/login')
   }
 
   const GetAddress =(AD)=>{
-    console.log('mycart',AD)
+    // console.log('mycart',AD)
     setfetchAddress(AD)
     setIsAddress(true)
   }
 
   const PlacedOrder =(e)=>{
     e.preventDefault()
-    console.log('placed order')
+    // console.log('placed order')
     BookOrder(fetchAddress)
   }
 
@@ -85,7 +85,7 @@ function Mycart() {
 
   function COD(e){
     e.preventDefault()
-    console.log('cod is fire ...')
+    
     const coddetails = {
       user_id:customer.customer_user._id,
       amount:grandTotal(),
@@ -95,15 +95,11 @@ function Mycart() {
     }
     axios.post(`${baseUrl}/codorder`,coddetails)
     .then((response)=>{
-      console.log(response)
       navigate('/cod')
     }).catch((error)=>{
-      console.log(error)
+      
     })
-  }
-
-  console.log('payment method',PaymentMethod)
-  
+  }  
   return (
     <div className='mycart_container'>
         <div className='mycart_wrapper'>
