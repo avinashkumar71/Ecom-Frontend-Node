@@ -16,35 +16,36 @@ function CardForHome({product}) {
         <div className='card_container'>
             <div className='card_wrapper'>
                 <NavLink to={`/description/${product._id}`}>
-                    <div className='image_wrapper'>
+                <div className='image_wrapper'>
                     <img src={`${product.ImageUrl}`} alt="" />
                         {product.discount!==0?<p className='offer_price_off'>{product.discount}% OFF</p>:<></>}  
-                    </div>
+                </div>
                 </NavLink>    
-                <div className='_description_price'>
-                <div className='itemname_description'>
-                    <p className='itemname-homecard'>{product.productname}</p>
-                    {/* <p className='description'>seller {auth.company}</p> */}
-                    <p className='description-homecard'>{product.description}</p>
-                </div>
-                <div className='price_add_to_cart'>
+                <div className='_description_price-homecard'>
+                    <div className='itemname_description-homecard'>
+                        <p className='itemname-homecard'>{product.productname}</p>
+                        <p className='description-homecard'>{product.description}</p>
+                    </div>
+                    <div className='price_add_to_cart'>
+                        
+                        <p>{product.discount!==0?<span className='mark_price'>{product.price} ₹</span>:<></>}<span className='selling_price'>{product.selling_price} ₹</span></p>
+                        <div className='add_to_cart_I_D'>
+                        {product._id in QuantityCounter(state)?<>
+                                                                
+                                                                <span className='De' onClick={()=>{Decrease(product)}}>-</span>
+
+                                                                    {product._id in QuantityCounter(state)
+                                                                    ?
+                                                                    <span className='cart_number' >{QuantityCounter(state)[product._id]}</span>
+                                                                    :
+                                                                    <div></div>}
+                                                                    <span className='In' onClick={()=>{Increase(product)}}>+</span>
+                                                            </>
+                                                                :
+                                                                <button onClick={()=>{Increase(product)}}>Add</button>}
+                        </div>
                     
-                    <p>{product.discount!==0?<span className='mark_price'>{product.price} ₹</span>:<></>}<span className='selling_price'>{product.selling_price} ₹</span></p>
-
-                    {product._id in QuantityCounter(state)?<>
-                                                            <span className='De' onClick={()=>{Decrease(product)}}>-</span>
-
-                                                            {product._id in QuantityCounter(state)
-                                                            ?
-                                                            <span className='cart_number' >{QuantityCounter(state)[product._id]}</span>
-                                                            :
-                                                            <div></div>}
-                                                            <span className='In' onClick={()=>{Increase(product)}}>+</span>
-                                                        </>
-                                                            :
-                                                            <button onClick={()=>{Increase(product)}}>Add</button>}
-                
-                </div>
+                    </div>
                 </div>
             </div>
         </div>

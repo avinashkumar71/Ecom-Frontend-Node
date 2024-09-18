@@ -1,10 +1,12 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import './Navbar.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../App'
 function Navbar() {
     console.log('navbar component')
     const {state,customer,seller} = useContext(UserContext)
+    const [click,setclick] = useState('show')
+    const [varr,setvarr] = useState('')
     const navigate = useNavigate()
 
     const DeleteCustomerUser =()=>{
@@ -14,6 +16,9 @@ function Navbar() {
         navigate('/')
         window.location.reload()
     }
+    
+
+    console.log(click)
 
     const DeleteUser =()=>{
         localStorage.removeItem('user')
@@ -31,7 +36,15 @@ function Navbar() {
                         <h2>Bazzar.com</h2>
                     </div>
                 </div>
-                <div className='nav_third_part'>
+
+                {click==='show'?<div className={`bar-icon-nav`} onClick={()=>setclick('unshow')}>
+                        <i class="fa-solid fa-bars"></i>
+                </div>:<div className={`bar-icon-nav`} onClick={()=>setclick('show')}>
+                        <i class="fa-solid fa-bars"></i>
+                </div>}
+                
+                <div className={`nav_third_part ${click}`}>
+                    
                     <div className='nav_button'>
 
                         {seller.user.name===undefined?<></>:<button >{`${seller.user.name}`}</button>}

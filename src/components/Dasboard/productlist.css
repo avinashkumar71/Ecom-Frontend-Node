@@ -1,6 +1,6 @@
 .productlist_container{
     width: 80%;
-    margin: 20px auto;
+    margin: 50px auto;
     display: flex;
     gap: 60px;
     flex-wrap: wrap;

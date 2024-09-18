@@ -25,25 +25,25 @@ function Card({product,auth}) {
     }
   return (
     <>
-        <div className='card_container'>
-            <div className='card_wrapper'>
+        <div className='card_container-card'>
+            <div className='card_wrapper-card'>
                 <NavLink to={`/description/${product.user_id}`}>
-                    <div className='image_wrapper'>
+                    <div className='image_wrapper-card'>
                     <img src={`${product.ImageUrl}`} alt="" />
-                        <p className='offer_price_off'>{product.discount}% OFF</p>
+                        <p className='offer_price_off-card'>{product.discount}% OFF</p>
                     </div>
                 </NavLink>    
-                <div className='itemname_description'>
+                <div className='itemname_description-card'>
                     <p className='itemname-card'>{product.productname}</p>
                     <p className='description-card'>seller {auth.company}</p>
                     <p className='description-card'>{product.description}</p>
                 </div>
-                <div className='price_add_to_cart'>
-                    <p><span className='mark_price'>{product.price} ₹</span><span className='selling_price'>{product.selling_price} ₹</span></p>                
+                <div className='price_add_to_cart-card'>
+                    <p><span className='mark_price-card'>{product.price} ₹</span><span className='selling_price-card'>{product.selling_price} ₹</span></p>                
                 </div>
             </div>
-            <div className='update_delete'>
-                <span className='delete' onClick={()=>Delete(product._id)}>delete</span><span className='update' onClick={()=>Update(product._id)}>update</span>
+            <div className='update_delete-card'>
+                <span className='delete-card' onClick={()=>Delete(product._id)}>delete</span><span className='update-card' onClick={()=>Update(product._id)}>update</span>
             </div>
         </div>
     </>

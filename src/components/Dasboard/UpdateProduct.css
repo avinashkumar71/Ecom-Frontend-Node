@@ -1,6 +1,6 @@
 .update_container{
     width: 50%;
-    margin: 15px auto;
+    margin: 65px auto;
 }
 .input_container{
     display: flex;
@@ -47,4 +47,16 @@
 .update-propagate{
     margin-top: 14px;
     text-align: center;
+}
+@media (max-width:792px) {
+    .update_container{
+        width: 80%;
+    }
+}
+@media (max-width:441px) {
+    .update_container form button{
+        position: absolute; 
+        bottom: -40px;
+        left: 0px;
+    }
 }
