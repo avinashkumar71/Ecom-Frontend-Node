@@ -1,6 +1,6 @@
 .addproduct_container{
     width: 30%;
-    margin: 20px auto;
+    margin: 65px auto;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -19,4 +19,24 @@
 }
 .addproduct-propagate{
     text-align: center;
+}
+@media (max-width:320px) {
+    .addproduct_container{
+        width: 70%;
+    }
+}
+@media (max-width:375px) {
+    .addproduct_container{
+        width: 70%;
+    }
+}
+@media (max-width:425px) {
+    .addproduct_container{
+        width: 70%;
+    }
+}
+@media (max-width:992px) {
+    .addproduct_container{
+        width: 70%;
+    }
 }

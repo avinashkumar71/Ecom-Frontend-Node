@@ -2,6 +2,7 @@
     border: 1px solid black;
 }
 .navbar_container{
+    width: 100%;
     padding: 0px 40px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -21,6 +22,9 @@
 .nav_first_part_wrapper h2{
     color: blue;
     font-size: 30px;
+}
+.bar-icon-nav{
+    display: none;
 }
 
 .nav_third_part .nav_button{
@@ -74,4 +78,71 @@
     padding: 1px 5px;
     border-radius: 50%;
 }
+@media (max-width:676px) {
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .nav_third_part{
+        position: absolute;
+        bottom: -45px;
+        display: none;
+    }
+    .bar-icon-nav{
+        display: inline;
+        font-size: 25px;
+    }
+    .show{
+        display: block;
+    }
+    
+}
+@media (max-width:475px) {
+    .nav_third_part .nav_button button{
+        font-size: 12px;
+        padding: 6px 8px;
+        outline: none;
+        border: none;
+        color: white;
+        background: red;
+        border-radius: 5px;
+    }
+    .nav_third_part .nav_button{
+        gap: 10px;
+    }
+    /* .nav_third_part{
+        left: -18px;
+    } */
+    .navbar_container{
+        padding: 0px 25px;
+    }
+    
+}
+@media (max-width:400px) {
+    .nav_third_part .nav_button button{
+        font-size: 10px;
+        padding: 6px 8px;
+        outline: none;
+        border: none;
+        color: white;
+        background: red;
+        border-radius: 5px;
+    }
+    .nav_third_part .nav_button{
+        justify-content: first baseline;
+        gap: 6px;
+    }
+    .fa-cart-shopping{
+        font-size: 25px;
+    }
+    .navbar_container{
+        padding: 0px 15px;
+    }
+}
+
+
+
+
 
