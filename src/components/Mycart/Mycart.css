@@ -1,6 +1,8 @@
 .mycart_wrapper{
     width: 80%;
-    margin: 10px auto;
+    margin: 0px auto;
+    margin-top: 70px;
+    margin-bottom: 20px;
 }
 table{
     margin: 15px 0px;
@@ -30,8 +32,12 @@ th, td {
 }
 
 .Address-payment{
+    width: 90%;
+    margin: 0px auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid black; */
 } 
 .Address-payment .payment{
     width: 30%;
@@ -39,10 +45,12 @@ th, td {
     
 }
 .Address-payment form{
+    /* width: 70%; */
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* border: 1px solid black; */
 }
 .Address-payment .payment form button{
     width: 30%;
@@ -67,4 +75,15 @@ th, td {
     padding: 14px 25px;
     /* border: 1px solid black; */
     font-size: 5px;
+}
+@media (max-width:736px) {
+    .Address-payment{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .Address-payment .payment{
+        width: 70%;
+        /* border: 1px solid black; */ 
+    }
 }

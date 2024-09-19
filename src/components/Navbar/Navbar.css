@@ -111,6 +111,10 @@
     }
     .nav_third_part .nav_button{
         gap: 10px;
+        background-color: aqua;
+        padding: 5px;
+        padding-right: 25px;
+        border-radius: 5px;
     }
     /* .nav_third_part{
         left: -18px;
@@ -133,6 +137,10 @@
     .nav_third_part .nav_button{
         justify-content: first baseline;
         gap: 6px;
+        background-color: aqua;
+        padding: 5px;
+        padding-right: 25px;
+        border-radius: 5px;
     }
     .fa-cart-shopping{
         font-size: 25px;
