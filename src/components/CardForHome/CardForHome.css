@@ -4,25 +4,21 @@
     border: 1px solid #E8E8E8;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border: 1px solid red;
 }
 .card_wrapper{
     width: 100%;
     height: 100%;
     position: relative;
-    border: 1px solid black;
 }
 .image_wrapper{
     width: 150px;
     height: 140px;
     padding: 5px 5px;
     text-decoration: none;
-    border: 2px solid black;
 }
 .image_wrapper img{
     width: 100%;
     height: 100%;
-    border: 1px solid green;
 }
 .offer_price_off{
     position: absolute;
@@ -35,10 +31,10 @@
     font-weight: 700;
 }
 ._description_price-homecard{
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
 }
 .itemname_description-homecard{
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .itemname-homecard{
     padding: 1px 5px;
@@ -62,7 +58,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid purple;
 }
 .price_add_to_cart .add_to_cart_I_D{
     display: flex;
@@ -71,7 +66,6 @@
 .add_to_cart_I_D .De , .In , .cart_number{
     padding: 2px 5px;
     border-radius: 5px;
-
 }
 .add_to_cart_I_D .De{
     color:white;
@@ -85,14 +79,7 @@
     color: white;
     background-color: blue;
 }
-/* .cart_number{
-    color: white;
-    background: blue;
-    padding: 0px 5px;
-    border-radius: 5px;
-    margin: 4px 0px;
-    margin-right: -18px;
-} */
+
 .price_add_to_cart button{
     padding: 4px 12px;
     font-size: 15px;
@@ -104,20 +91,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
-/* .price_add_to_cart .De, .In{
-    background-color: red;
-    color: white;
-    padding: 0px 6px;
-    border-radius: 5px;
-    margin: 4px 0px;
-    cursor: pointer;
-} */
+
 .price_add_to_cart .De:active, .In:active{
     transform: translateY(2px);
 }
-/* .price_add_to_cart .De{
-    margin-right: -18px;
-} */
+
 .price_add_to_cart button:active{
     background-color: rgb(31, 233, 31);
 }
@@ -137,7 +115,6 @@
         border: 1px solid #E8E8E8;
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        border: 1px solid red;
     }
     .card_wrapper{
         width: 100%;
@@ -167,7 +144,6 @@
         height: 120px;
         padding: 5px 5px;
         text-decoration: none;
-        border: 2px solid black;
     }
     
      .price_add_to_cart{
@@ -180,16 +156,28 @@
         width: 100%;
         height: 120px;
     }
+    .card_wrapper{
+        width: 100%;
+        height: 100%;
+    }
     .image_wrapper{
         width: 120px;
         height: 120px;
         padding: 5px 5px;
         text-decoration: none;
-        border: 2px solid black;
     }
     
      .price_add_to_cart{
         width: 60%;
-        padding: 2px 5px;
+        padding: 2px 1px;
      } 
+     .add_to_cart_I_D .De , .In , .cart_number{
+        padding: 1px 3px;
+        border-radius: 5px;
+    }
+    .price_add_to_cart button{
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+
 }

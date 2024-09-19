@@ -1,5 +1,5 @@
 .address{
-    width: 40%;
+    width: 50%;
 }
 .address form{
     /* width: 100%; */
@@ -26,4 +26,21 @@
 }
 .print-address-div{
     margin-top: 15px;
+}
+@media (max-width:736px) {
+    .address{
+        width: 80%;
+    }
+}
+@media (max-width:472px) {
+    .address{
+        width: 80%;
+    }
+    .address form{
+        /* width: 100%; */
+        display: grid;
+        grid-template-columns: auto;
+        gap: 8px;
+        /* border: 1px solid black; */
+    }
 }

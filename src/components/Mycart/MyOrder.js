@@ -39,18 +39,6 @@ function MyOrder() {
         return text
     }
 
-    // function ProductShortName(obj){
-    //     const keys = Object.keys(obj)
-    //     let Arry = []
-    //     for(let pid of keys){
-    //         const U_PID = pid.slice(0,7)
-    //         Arry.push(U_PID)
-    //     }
-    //     // console.log('Arry --->',Arry)
-    //     const id = Arry.toString()
-    //     return id
-    // }
-
     function ProductID(obj){
         const keys = Object.keys(obj)
         return keys

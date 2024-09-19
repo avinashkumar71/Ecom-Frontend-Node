@@ -31,6 +31,7 @@
 .description_brand_name{
     font-size: 18px;
     font-weight: 700;
+    text-align: justify;
 }
 .description_desc{
     font-size: 13px;

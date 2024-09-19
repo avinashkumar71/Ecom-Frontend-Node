@@ -1,12 +1,13 @@
 .profile_container{
     width: 20%;
-    margin: 20px auto;
+    margin: 60px auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 .details{
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
 }
