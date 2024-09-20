@@ -13,6 +13,10 @@ function AddProduct() {
   const [formdata,setformdata] = useState(new FormData)
   const [post,setpost] = useState()
 
+  if(Array.from(formdata.keys()).length>2){
+    window.location.reload()
+}
+
   const handleClick =(e)=>{
     e.preventDefault()
     setloading(true)
