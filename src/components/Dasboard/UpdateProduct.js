@@ -37,12 +37,18 @@ function UpdateProduct() {
         })
     },[])
 
+    
+
     // console.log('price',price)
     // console.log('discount',discount)
     // console.log('qty',qty)
-
+    if(Array.from(formdata.keys()).length>2){
+        window.location.reload()
+    }
+    
     const handleClick =(e)=>{
         e.preventDefault()
+        
         setloading(true)
         post['productname'] = productname
         post['price'] = price
@@ -54,13 +60,9 @@ function UpdateProduct() {
             post['ImageUrl'] = ImageUrl
         } 
         
-        
         formdata.append('data',JSON.stringify(post))
-
-        axios.post(`${baseUrl}/update-product/${product_id.id}`,formdata,{
-            headers: {
-                'Content-Type': 'multipart/form-data'}
-            })
+        // console.log('form data ----------->',formdata)
+        axios.post(`${baseUrl}/update-product/${product_id.id}`,formdata)
         .then((response)=>{
             
             navigate('/seller-products')
@@ -71,14 +73,16 @@ function UpdateProduct() {
     }
 
     const handleFileInput = (e) => {
+        // console.log('e.target ---->',e.target.files)
         formdata.append('image', e.target.files[0], e.target.files[0].name);
         setimg(true)
       }
-
+      console.log('setimg ----->',img)
     // const handleInput = (e) => { 
     //     setpost({...post,[e.target.name]:e.target.value})
     //   }  
-
+    // console.log('form data length ------------->',Array.from(formdata.keys()).length)
+    // console.log('form data length ------------->',formdata.getAll('image'))
   return (
     <>
         <div className='update_container'>
@@ -115,7 +119,7 @@ function UpdateProduct() {
                     <label htmlFor="">Description</label>
                     <textarea  id="" placeholder='Description' name='description' value={description} onChange={(e)=>{setdescription(e.target.value)}}></textarea>
                 </div>
-                <input type="file" id='update-file' onChange={handleFileInput} />
+                <input type="file" id='update-file' name='image' onChange={handleFileInput} />
                 <button>Update</button>
             </form>
             <div className='update-propagate'>

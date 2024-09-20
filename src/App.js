@@ -51,9 +51,7 @@ function App() {
     .then((response)=>{
       setAllItem(response.data)
       // console.log('all-products ------->',response.data)
-      if(localStorage.getItem('All-item')===null){
-            localStorage.setItem('All-item',JSON.stringify(response.data))
-      }
+      localStorage.setItem('All-item',JSON.stringify(response.data))
     }).catch((error)=>{
     })
   },[])

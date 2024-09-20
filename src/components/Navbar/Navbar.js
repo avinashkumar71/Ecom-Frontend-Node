@@ -3,7 +3,7 @@ import './Navbar.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../App'
 function Navbar() {
-    console.log('navbar component')
+    // console.log('navbar component')
     const {state,customer,seller} = useContext(UserContext)
     const [click,setclick] = useState('show')
     const [varr,setvarr] = useState('')
