@@ -139,7 +139,7 @@
         gap: 6px;
         background-color: aqua;
         padding: 5px;
-        padding-right: 25px;
+        /* padding-right: 25px; */
         border-radius: 5px;
     }
     .fa-cart-shopping{

@@ -9,3 +9,19 @@
 .online-myorder-table{
     margin-top: 20px;
 }
+@media (max-width:1024px) {
+    /* .myorder-container{
+        width: 100%;
+    } */
+     .online-myorder-table{
+        width: 50%;
+     }
+    .myorder-details-values{
+        display: none;
+        /* border-bottom: 2px solid red; */
+    }
+    .myorder-products-id{
+        display: flex;
+        flex-direction: column;
+    }
+}
