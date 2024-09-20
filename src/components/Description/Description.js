@@ -31,7 +31,7 @@ function Description() {
             </div>
             <div className='description_right_part'>
                 <div className='brand_name'>
-                    <h3>brand name</h3>
+                    <h3>{product.productname}</h3>
                     <p>View by all brand name</p>
                 </div>
                 <div className='mrp_quantity_addtocart'>

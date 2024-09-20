@@ -60,16 +60,16 @@ function MyOrder() {
                 <tr>
                     <th>S.no</th>
                     <th>Product Name</th>
-                    <th>Address</th>
+                    <th className='myorder-details-values'>Address</th>
                     <th>Amount</th>
                     <th>Payment Status</th>
-                    <th>Delivery Status</th>
+                    <th className='myorder-details-values'>Delivery Status</th>
                 </tr>
                 {details.map((item,index)=>{
                     return (
                     <tr>
                         <td>{index+1}</td>
-                        <td>{ProductID(item.products).map((pid)=>{
+                        <td className='myorder-products-id'>{ProductID(item.products).map((pid)=>{
                             return(
                                 <td>
                                     <NavLink to={`/description/${pid}`}>
@@ -80,10 +80,10 @@ function MyOrder() {
                         })}</td>
                         
                         {/* <td>{ProductID(item.products)}</td> */}
-                        <td>{Address(item.address)}</td>
+                        <td className='myorder-details-values'>{Address(item.address)}</td>
                         <td>{item.amount} ₹</td>
-                        <td>{item.payment_status}</td>
-                        <td>Pending</td>
+                        <td >{item.payment_status}</td>
+                        <td className='myorder-details-values'>Pending</td>
                     </tr>
                     )
                 })} 

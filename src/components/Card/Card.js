@@ -27,7 +27,7 @@ function Card({product,auth}) {
     <>
         <div className='card_container-card'>
             <div className='card_wrapper-card'>
-                <NavLink to={`/description/${product.user_id}`}>
+                <NavLink to={`/description/${product._id}`}>
                     <div className='image_wrapper-card'>
                     <img src={`${product.ImageUrl}`} alt="" />
                         <p className='offer_price_off-card'>{product.discount}% OFF</p>
