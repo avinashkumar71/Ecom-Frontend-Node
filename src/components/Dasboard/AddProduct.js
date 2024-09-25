@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './AddProduct.css'
 import { useNavigate } from 'react-router-dom';
 import baseUrl from '../../Urls';
@@ -12,6 +12,7 @@ function AddProduct() {
   auth = JSON.parse(auth)[0]
   const [formdata,setformdata] = useState(new FormData)
   const [post,setpost] = useState()
+  const [Allcategory,setAllcategory] = useState([])
 
   if(Array.from(formdata.keys()).length>2){
     window.location.reload()
@@ -42,6 +43,16 @@ function AddProduct() {
     setpost({...post,[e.target.name]:e.target.value})
   }  
 
+  useEffect(()=>{
+    axios.get(`${baseUrl}/get-category`)
+    .then((response)=>{
+      console.log('category---->',response)
+      setAllcategory(response.data)
+    }).catch((error)=>{
+      console.log('------>error',error)
+    })
+  },[])
+
   return (
     <>
       <form className='addproduct_container' onSubmit={handleClick}>
@@ -52,12 +63,15 @@ function AddProduct() {
 
         <select name="category" id="category" onChange={handleInput} required>
             <option >Select Product Category</option>
-            <option value='Clothes' >Clothes</option>
-            <option value='Electronics'>Electronics</option>
+            {Allcategory.map((cat)=>{
+              return <option value={cat.name} >{cat.name}</option>
+            })}
+            
+            {/* <option value='Electronics'>Electronics</option>
             <option value='Laptops'>Laptops</option>
             <option value='Mobiles'>Mobiles</option>
             <option value='Baby Products'>Baby Products</option>
-            <option value='Toys/Games'>Toys</option>
+            <option value='Toys/Games'>Toys</option> */}
         </select>
 
         <textarea name="description" id="" placeholder='Description' onChange={handleInput} required></textarea>

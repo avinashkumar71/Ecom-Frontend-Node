@@ -70,10 +70,12 @@
 .add_to_cart_I_D .De{
     color:white;
     background-color: red;
+    cursor: pointer;
 }
 .add_to_cart_I_D .In{
     color: white;
     background-color: green;
+    cursor: pointer;
 }
 .add_to_cart_I_D .cart_number{
     color: white;

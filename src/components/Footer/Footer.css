@@ -1,0 +1,89 @@
+footer{
+    margin-top: auto;
+}
+.footer-upper{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(103, 64, 231);
+    padding: 10px 0px;
+}
+.footer-left{
+    flex: 50%;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-left-heading{
+    font-weight: 600;
+}
+.footer-left p{
+    text-align: justify;
+    color: white;
+    cursor: pointer;
+}
+.footer-right{
+    border-left: 1px solid white;
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-right .footer-visitors{
+    display: flex;
+    gap: 16px;
+}
+.footer-visitors .visitor{
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+}
+.visitor-number{
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+}
+
+.footer-lower{
+    background-color: rgb(73, 20, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+}
+.footer-lower span{
+    font-weight: 700;
+    color: white;
+}
+@media (max-width:676px) {
+    .footer-left{
+        gap: 20px;
+    }
+}
+@media (max-width:576px) {
+    .footer-upper{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-right{
+        padding: 10px 0px;
+        justify-content: first baseline;
+    }
+    .footer-left{
+        gap: 50px;
+        padding: 10px 0px;
+    }
+    .footer-right form{
+        width: 80%;
+    }
+    .footer-right form textarea{
+        width: 100%;
+    }
+}
+@media (max-width:338px) {
+    .footer-left{
+        gap: 20px;
+    }
+}
