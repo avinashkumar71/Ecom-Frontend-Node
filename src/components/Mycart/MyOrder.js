@@ -4,18 +4,24 @@ import './MyOrder.css'
 import axios from 'axios'
 import baseUrl from '../../Urls'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 function MyOrder() {
     const {customer,AllItem} = useContext(UserContext)
     const [details,setdetails] = useState([])
     const [mode,setmode] = useState('ONLINE')
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(customer.customer_user._id===undefined){
+            navigate('/')
+        }
+    })
 
     useEffect(()=>{
         if(mode==='ONLINE'){
-            console.log('online -------> ')
                 axios.post(`${baseUrl}/myorder`,{user_id:customer.customer_user._id})
                 .then((response)=>{
-                    
                     setdetails(response.data)
                 }).catch((error)=>{
                     
@@ -24,7 +30,6 @@ function MyOrder() {
                 
                 axios.post(`${baseUrl}/my-cod-order`,{user_id:customer.customer_user._id})
                 .then((response)=>{
-                    
                     setdetails(response.data)
                 }).catch((error)=>{
                     
@@ -44,9 +49,6 @@ function MyOrder() {
         return keys
     }
 
-
-    // console.log('all items in myorder',AllItem)
-    // console.log('details --->',details)
   return (
     <>
         <div className='myorder-container'>

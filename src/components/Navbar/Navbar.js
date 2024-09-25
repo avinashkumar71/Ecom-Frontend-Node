@@ -6,7 +6,6 @@ function Navbar() {
     // console.log('navbar component')
     const {state,customer,seller} = useContext(UserContext)
     const [click,setclick] = useState('show')
-    const [varr,setvarr] = useState('')
     const navigate = useNavigate()
 
     const DeleteCustomerUser =()=>{
@@ -18,7 +17,7 @@ function Navbar() {
     }
     
 
-    console.log(click)
+    // console.log(click)
 
     const DeleteUser =()=>{
         localStorage.removeItem('user')
