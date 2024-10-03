@@ -130,7 +130,7 @@ function Home() {
                   {text!==''?<div className='home_container'>
                         <Suspense fallback={<h2>Please wait ...</h2>}>
                             {AllProduct.filter((prt)=>{
-                              return prt.description.toLowerCase().includes(text)
+                              return prt.description.toLowerCase().includes(text.toLowerCase())
                           }).map((product)=>{
                             return <CardForHome product={product}/>
                           })}
