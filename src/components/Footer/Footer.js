@@ -52,7 +52,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className='footer-lower'>
-                    <span>@2024 Bazzar.com</span>
+                    <span>@2026 Bazzar.com</span>
                 </div>
             </div>
         </footer>
